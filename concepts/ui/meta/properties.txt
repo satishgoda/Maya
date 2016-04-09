@@ -1,0 +1,16 @@
+
+int
+
+type:int name:count default:0 min:0 max:10 ui:slider
+float
+
+type:float name:scale default:1.5 min:1.0 max:5.5 ui:slider
+
+str
+
+type:str name:Username ui:label
+
+enum
+
+type:enum name:Presets values:"Studio,Show,Shot,User" ui:option
+
