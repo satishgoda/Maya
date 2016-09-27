@@ -18,3 +18,13 @@ for oset in self.selectionSets:
     oset.setAnnotation('sessionSelectionSet')
     oset.lock()
 ```
+
+```python
+selindex = self.setsView.selectedIndexes()[0]
+selection = selindex.data(QtCore.Qt.UserRole)
+selection._oset.unlock()
+manager.removeSet(selection)    
+manager.model.removeColumn(selindex.column())
+pm.delete(selectionset._oset)
+del(selectionset)
+```
