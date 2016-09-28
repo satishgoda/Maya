@@ -15,3 +15,12 @@ sc = splitter.widget(0)
 se = splitter.widget(1)
 
 splitter.insertWidget(0, se)
+
+save = splitter.saveState()
+#str(save)
+
+splitter.restoreState(save)
+
+sc = splitter.widget(0)
+se = splitter.widget(1)
+splitter.insertWidget(0, se)
