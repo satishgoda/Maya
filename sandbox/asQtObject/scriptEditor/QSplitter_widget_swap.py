@@ -24,3 +24,17 @@ splitter.restoreState(save)
 sc = splitter.widget(0)
 se = splitter.widget(1)
 splitter.insertWidget(0, se)
+
+qtpanel.focusWidget().hide()
+
+fw = qtpanel.focusWidget()
+
+fw.children()[0].hide()
+fw.children()[0].show()
+
+fw.children()[3].hide()
+fw.children()[3].show()
+
+te = fw.children()[0]
+
+te.hide()
