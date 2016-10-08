@@ -28,3 +28,9 @@ manager.model.removeColumn(selindex.column())
 pm.delete(selectionset._oset)
 del(selectionset)
 ```
+
+```python
+setsByCreationTime = sorted(self.selectionSets, 
+                            key=lambda os: os.attr('ctime').get()
+                     )
+```
