@@ -1,16 +1,13 @@
-def enableIsolateSelect():
-    melState = "false" if pm.isolateSelect('modelPanel4', query=True, state=True) else "true"
-    pm.mel.eval("enableIsolateSelect {} {}".format("modelPanel4", melState))
-
-def _onContextMenu(self, pos):
-    menu = QtGui.QMenu()
-    toggleIsolateSelectAction = menu.addAction("")
-    if pm.isolateSelect('modelPanel4', query=True, state=True):
-        toggleIsolateSelectAction.setText("Exit Isolate Mode")
-    else:
-        toggleIsolateSelectAction.setText("Enter Isolate Mode")
-
-    toggleIsolateSelectAction.triggered.connect(enableIsolateSelect)
+class ViewportIsolateSelectAction(QtGui.QAction):
+    def __init__(self, *args, **kwargs):
+        super(ViewportIsolateSelectAction, self).__init__(*args, **kwargs)
+        text = "Exit" if self.getCurrentState() else "Enter"
+        self.setText("{0} Isolate Select Mode".format(text))
+        self.triggered.connect(self.execute)
     
-    pos.setY(pos.y()+20)
-    menu.exec_(self.mapToGlobal(pos))
+    def execute(self):
+        melState = "false" if self.getCurrentState() else "true"
+        pm.mel.eval("enableIsolateSelect {0} {1}".format("modelPanel4", melState))        
+    
+    def getCurrentState(self):
+        return pm.isolateSelect('modelPanel4', query=True, state=True)
