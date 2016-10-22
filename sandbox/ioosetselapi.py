@@ -26,6 +26,16 @@ pm.select(selStrings)
 pm.select(deselect=True)
 vtx_sets = pm.ls(regex="*_vtx_set", type='objectSet')
 serialize = []
+
+for vtx_set in vtx_sets:
+    if not all(map(lambda member: isinstance(member, pm.MeshVertex), vtx_set.members())):
+        print vtx_set, "should only contain vertices"
+        print vtx_set.asSelectionSet().getSelectionStrings()
+        continue
+    sset = vtx_set.asSelectionSet()
+    selStrings = sset.getSelectionStrings()
+    serialize.append((vtx_set.name(), selStrings))
+
 for vtx_set in vtx_sets:
     pm.select(vtx_set, replace=True)
     slist = om.MGlobal.getActiveSelectionList()
