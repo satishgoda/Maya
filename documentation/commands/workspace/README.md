@@ -1,4 +1,7 @@
-Maya Workspaces
+Maya Projects
+
+* http://help.autodesk.com/view/MAYAUL/2017/ENU/?guid=GUID-D5CA162A-0956-49C6-9FAC-2F73DCF03409
+* http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/Commands/workspace.html
 
 ```
 workspace -query -fn
