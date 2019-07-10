@@ -1,6 +1,7 @@
 # References
 
-https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/checkBox.html
+- https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/checkBox.html
+- https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/PyMel/generated/classes/pymel.core.uitypes/pymel.core.uitypes.CheckBox.html
 
 # Code
 
