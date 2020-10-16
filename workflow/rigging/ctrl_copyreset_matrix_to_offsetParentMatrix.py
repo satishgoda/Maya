@@ -23,11 +23,11 @@ def reset_translate_rotate(control):
 
 
 if __name__ = "__main__":
-controls = pm.selected()
+    controls = pm.selected()
 
-if not controls:
-    raise ValueError("Nothing selected")
+    if not controls:
+        raise ValueError("Nothing selected")
 
-for control in controls:
-    copy_matrix_to_offsetParentMatrix(control)
-    reset_translate_rotate(control)
+    for control in controls:
+        copy_matrix_to_offsetParentMatrix(control)
+        reset_translate_rotate(control)
