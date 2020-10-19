@@ -1,0 +1,12 @@
+// Code from https://forums.cgsociety.org/t/how-to-duplicate-materials-with-objects/1610956
+
+global proc neo_duplicateObj() {
+    string $objects[]=`ls -sl`;
+    for ($curobjects in $objects) {
+        string $dupObj[]=`duplicate -rr -renameChildren -un $curobjects`;
+        string $shapes[]=`listRelatives -s -path $curobjects`;
+        string $shadingGroup[]=`listConnections -s false -d true -type shadingEngine $shapes[0]`;
+        string $dupShadingGroup[]=`duplicate -upstreamNodes $shadingGroup[0]`;
+        sets -e -forceElement $dupShadingGroup[0] $dupObj[0];
+    }
+} // end global proc neo_duplicateObj()
